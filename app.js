@@ -1,35 +1,32 @@
-const todoForm = document.querySelector(".todo_form");
-const todoItems = document.querySelector(".todo-items");
+const todoForm= document.querySelector(".todo_form");
+const todoItem= document.querySelector(".todo-items");
+const taskList=[];
 
-const taskList = [];
-
-function handleSubmit(e){
-
+function handelSubmit(e){
   e.preventDefault();
 
   const inputData= e.target.task.value;
 
-  const task = {
-    id: Date.now(),
+  const data={
+    id:Date.now(),
     task:inputData,
-    isCompletde:false,
-    }
+    isComplite:false,
+  }
+  taskList.push(data);
 
-    e.target.reset();
+  e.target.reset();
 
+  displayTask();
 
-    taskList.push(task);
-
-    displayTask();
 }
 
 function displayTask(){
-  const html = taskList.map(item=>{
+  const html=taskList.map((item)=>{
     return`<li>${item.task}</li>`
-  }).join("");
+  }
+  ).join("");
 
-  todoItems.innerHTML = html;
+  todoItem.innerHTML=html;
 }
 
-todoForm.addEventListener("submit", handleSubmit);
-
+todoForm.addEventListener("submit", handelSubmit);
