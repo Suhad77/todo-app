@@ -67,11 +67,9 @@ function displayFormLocastroge(){
 
 }
 
-
 todoForm.addEventListener("submit", handelSubmit);
 todoItem.addEventListener("display", displayTask);
 todoItem.addEventListener("display", saveFormLocalstorage);
-
 
 
 displayFormLocastroge()
